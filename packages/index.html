@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地测试</title>
+</head>
+<body>
+    
+</body>
+<script src="./reactivity/dist/reactivity.global.js"></script>
+<script>
+    const { reactive, shallowReactive, readonly, shallowReadonly } = VueReactivity
+    const obj1 = {hello: 123, test: {
+        name: '张三'
+    }}
+    const obj2 = {hello: 123, test: {
+        name: '张三'
+    }}
+    const obj3 = {hello: 123, test: {
+        name: '张三'
+    }}
+    const obj4 = {hello: 123, test: {
+        name: '张三'
+    }}
+    // const test1 = reactive(obj1)
+    // console.log(test1.test)
+
+    const test2 = shallowReactive(obj2)
+    console.log(test2)
+    console.log(test2.test)
+
+    const test3 = readonly(obj3)
+    test3.name = 3
+    test3.test.hello = 3
+    console.log(test3)
+
+    // const test4 = shallowReadonly(obj4)
+    // test4.name = 3
+    // test4.test.hello = 3
+    // console.log(test4)
+    // const target = {
+    //     age: 123,
+    //     name: '张三'
+    // }
+    // const newTarget = new Proxy(target, {
+    //     get: (obj, key, test) => {
+    //         console.log(obj, key, test)
+    //         return 888
+    //     }
+    // })
+    // console.log(newTarget.age)
+</script>
+</html>
